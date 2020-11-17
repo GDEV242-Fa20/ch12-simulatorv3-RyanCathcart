@@ -4,7 +4,8 @@ import java.util.List;
  * A class representing shared characteristics of animals.
  * 
  * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29 (2)
+ * modified by Ryan Cathcart
+ * @version 2020.11.16
  */
 public abstract class Animal
 {
@@ -13,7 +14,9 @@ public abstract class Animal
     // The animal's field.
     private Field field;
     // The animal's position in the field.
-    private Location location;
+    private Location location;   
+    // The animal's age.
+    private int age;
     
     /**
      * Create a new animal at location in field.
@@ -26,6 +29,7 @@ public abstract class Animal
         alive = true;
         this.field = field;
         setLocation(location);
+        age = 0;
     }
     
     /**
@@ -42,6 +46,23 @@ public abstract class Animal
     protected boolean isAlive()
     {
         return alive;
+    }
+    
+    /**
+     * Return the animal's age. 
+     * @return This animal's age. 
+     */
+    protected int getAge()
+    {
+        return age;
+    }
+    
+    /**
+     * Determine the age of the animal.
+     * @param newAge The new age of the animal.
+     */
+    protected void setAge(int newAge) {
+        age = newAge;
     }
 
     /**
