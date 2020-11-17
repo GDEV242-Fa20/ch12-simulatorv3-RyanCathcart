@@ -21,8 +21,6 @@ public class Rabbit extends Animal
     private static final double BREEDING_PROBABILITY = 0.12;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 4;
-    // A shared random number generator to control breeding.
-    private static final Random rand = Randomizer.getRandom();
     
     // Individual characteristics (instance fields).
 
@@ -82,20 +80,6 @@ public class Rabbit extends Animal
             newRabbits.add(young);
         }
     }
-        
-    /**
-     * Generate a number representing the number of births,
-     * if it can breed.
-     * @return The number of births (may be zero).
-     */
-    private int breed()
-    {
-        int births = 0;
-        if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
-            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
-        }
-        return births;
-    }
     
     /**
      * Return the breeding age of this rabbit.
@@ -113,5 +97,23 @@ public class Rabbit extends Animal
     public int getMaxAge()
     {
         return MAX_AGE;
+    }
+    
+    /**
+     * Return the breeding probability of this rabbit.
+     * @return The breeding probability of this rabbit.
+     */
+    public double getBreedingProbability()
+    {
+        return BREEDING_PROBABILITY;
+    }
+    
+    /**
+     * Return the max litter size of this rabbit.
+     * @return The max litter size of this rabbit.
+     */
+    public int getMaxLitterSize()
+    {
+        return MAX_LITTER_SIZE;
     }
 }
